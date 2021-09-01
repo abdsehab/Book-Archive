@@ -13,8 +13,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <!-- Search Bar -->
+    <header>
+        <div class="input-group mb-3 w-50 mx-auto my-3 text-center">
+            <input type="text" class="form-control border border-dark border-2  rounded" placeholder="Search Your Book Here" aria-label="Recipient's username" aria-describedby="button-addon2" id="search-input">
+            <button class="btn btn-outline-secondary btn-danger fw-bold text-white" type="button" id="button-addon2" onclick="SearchBook()">Search Here</button>
+        </div>
+    </header>
 
+    <main id="main-body">
+        <section id="Result-box" class="row row-cols-1 row-cols-md-3 g-4"></section>
+        <!-- Result Found -->
+        <h5 id="result-found"> Hello</h5>
+        <!-- Default Book List -->
+        </section>
+    </main>
 
 
     <!-- Bootstarp JS -->
