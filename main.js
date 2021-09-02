@@ -1,16 +1,20 @@
 // Book Search
+const ResultBox = document.getElementById('Result-box');
+const ResulltNumber = document.getElementById('result-found');
+
 
 const SearchBook = () => {
     const SearchInput = document.getElementById('search-input');
     const SearchInputValue = SearchInput.value;
     if (SearchInputValue === "") {
-        SearchInput.value = "Input A Valid Name"
+        ResultBox.innerHTML = "";
+        ResulltNumber.innerHTML = ` Total Result Found : 0`
         return
     }
     else {
         SearchInput.value = "";
     
-    const API = `http://openlibrary.org/search.json?q=${SearchInputValue}`;
+    const API = `https://openlibrary.org/search.json?q=${SearchInputValue}`;
 
     fetch(API)
         .then(res => res.json())
@@ -22,11 +26,10 @@ const SearchBook = () => {
 
 const ShowResult = Data => {
     const Results = Data.docs;
-    const ResultBox = document.getElementById('Result-box');
     ResultBox.innerHTML = "";
     
     // Result Number
-    const ResulltNumber = document.getElementById('result-found');
+    
     ResulltNumber.innerHTML = ` Total Result Found : ${Data.num_found}`
 
     // Create Div
@@ -61,12 +64,6 @@ const ShowResult = Data => {
                     </div>
         `;
             ResultBox.appendChild(div);
-        
-            
-        
-            
-
-        
         }
     
         )
