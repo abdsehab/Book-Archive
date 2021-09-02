@@ -29,14 +29,26 @@ const ShowResult = Data => {
     const ResulltNumber = document.getElementById('result-found');
     ResulltNumber.innerHTML = ` Total Result Found : ${Data.num_found}`
 
-    Results.forEach(Result => {
+    // Create Div
+    const div = document.createElement('div');
+    div.classList.add('col', 'mx-auto', 'w-75');
+    
+    if (Data.num_found === 0) {
+        div.innerHTML = ` 
+        <div class="card text-center w-75 mx-auto">
+            <div class="card-header"> No Result Found</div>
+            <div class="card-body">
+                <h5 class="card-title">Search Again</h5>  
+            </div>     
+        </div>`;
         
+        ResultBox.appendChild(div);
+    }
+    else {
+        Results.forEach(Result => {
         const div = document.createElement('div');
         div.classList.add('col');
-
-       
-        
-             div.innerHTML = `
+            div.innerHTML = `
             <div class="card h-100">
                         <img src="https://covers.openlibrary.org/b/id/${Result.cover_i}-M.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -48,12 +60,22 @@ const ShowResult = Data => {
                             
                     </div>
         `;
+            ResultBox.appendChild(div);
+        
+            
+        
+            
 
-        ResultBox.appendChild(div);
+        
         }
-       
-    );
+    
+        )
+    }
 }
+    
+       
+    
+    
 
 
 
